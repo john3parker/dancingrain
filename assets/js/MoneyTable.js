@@ -193,7 +193,7 @@ function MoneyTable(config) {
 		}
 		else if(event.which == 13) {
 			// ENTER - save edit
-			if (isEditMode()) {
+			if (self.isEditMode()) {
 				self.clearEdit(event.currentTarget, true);
 			}
 			else {

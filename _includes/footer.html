@@ -1,0 +1,24 @@
+<nav class="navbar navbar-dark bg-dark justify-content-center align-items-stretch">
+            <div class="col-sm-12 col-md-4">
+                <img src="{{ "/img/logo-white.png" | relative_url }}" alt="" class="footer-logo">
+            </div>
+            <div class="col-sm-12 col-md-4">
+                <h3 class="text-white">About</h3>
+                <div class="dropdown-divider"></div>
+                <ul class="navbar-nav flex-column">
+                {% for item in site.data.navigation.footer %}
+                    <li class="nav-item active"><a class="nav-link" href="{{ item.url | relative_url }}">{{ item.title }}</a></li>
+                {% endfor %}
+                </ul>
+            </div>
+            <div class="col-sm-12 col-md-4">
+                <h3 class="text-white">Contact</h3>
+                <div class="dropdown-divider"></div>
+                include address.html
+            </div>
+    	<div class="copyright text-muted">
+            <p>
+                &copy;{{ 'now' | date: "%Y" }} {{ site.title }} - All Rights Reserved<br>
+    		</p>
+    	</div>
+</nav>
