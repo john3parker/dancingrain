@@ -5,7 +5,6 @@ function MoneyChart(elementToBind) {
 	self.elements = {};
 	self.elements.elementToBind = elementToBind;
 	self.constants.CHART_ID = 'bm:budgetChart';
-	self.constants.EVENT_BUDGET_UPDATE = 'bm:budget-update';
 	
 	self.initialConfiguration = function() {
 		self.config = {};
@@ -38,7 +37,7 @@ function MoneyChart(elementToBind) {
 		self.config.data.datasets.push(self.dataset);
 		self.chart = new Chart($(self.elements.canvas), self.config);
 		
-		$(document).on(self.constants.EVENT_BUDGET_UPDATE, function(event, accounts) {
+		$(document).on(MoneyConstants.EVENT_BUDGET_UPDATE, function(event, accounts) {
 			self.sumTotal(accounts);
 		});
 	}
