@@ -9,10 +9,9 @@
 {% include head.html %}
 
 <body>
-	include nav.html
-	<div class="container-fluid">
-		include hero.html
+	{% include navbar.html %}
 
+	<div class="container-fluid" style="padding-left: 0; padding-right: 0;">
 		{% comment %}
 			Any layout that extends this layout will have its contents
 			added as the content variable

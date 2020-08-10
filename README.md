@@ -40,6 +40,10 @@ bundle install
 
 You can generate and run the site in local mode for dev and testing.
 
+### Minify
+Set environment this environment variable
+JEKYLL_ENV="production"
+
 ```
 bundle exec jekyll serve --host 0.0.0.0
 ```
