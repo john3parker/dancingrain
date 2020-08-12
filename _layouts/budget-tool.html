@@ -1,37 +1,32 @@
-<!doctype html>
-<html class="no-js" lang="en">
-
-{% comment %}
-	The default layout for the site, which is extended by all other layouts.
-	Includes the document <head>, main navigation and page footer
-{% endcomment %}
-
-{% include head.html %}
+---
+layout: default
+---
  <script type="text/javascript" src="/assets/js/MoneyTable.js?v={{site.build}}"></script>
  <script type="text/javascript" src="/assets/js/MoneyChart.js?v={{site.build}}"></script>
  <script type="text/javascript" src="/assets/js/MoneyManager.js?v={{site.build}}"></script>
  <script type="text/javascript" src="/assets/js/MoneyStorage.js?v={{site.build}}"></script>
  <script type="text/javascript" src="/assets/js/MoneyConstants.js?v={{site.build}}"></script>
  <script type="text/javascript" src="/assets/js/jquery.cookie.js?v={{site.build}}"></script>
+ <!--script type="text/javascript" src="/assets/js/chartjs-plugin-labels.min.js?v={{site.build}}"></script-->
 
 <!-- OPEN ICONIC -->
 <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.min.css"/>
 
-<body>
-
 <div class="row">
-	<div class="col-12 col-lg-3 border"><div class=""></div></div>
-	<div class="col-12 col-lg-6">
-		<div style="margin-left:20px;">
-		    
-		    <h1>Javen the Money Man</h1>
-		    <div id="budgetMonth"></div>
-			<div class="" id="leftToBudget">
-				<h4>
-					<span class="text-success">$2,736.00</span><span>&nbsp;left to budget</span>
-				</h4>
-				</div>
-		    
+	<div class="border col-12 col-xl-3 order-lg-3 order-xl-1">
+		<div class="d-flex justify-content-center">
+			<h1>ARTICLES</h1>
+		</div>
+		<div class="d-flex justify-content-center">
+			<h1>AD SPACE</h1>
+		</div>
+	</div>
+	<div class="col-12 col-xl-6 order-lg-1 order-xl-2">
+		<div class="row">
+		    <div class="col-auto mt-2 mb-2 mr-auto" id="budgetMonth"></div>
+		    <div class="col-auto mt-2 mb-2"><a href="" class="btn btn-success">Save</a></div>
+		</div>
+		<div>
 		    <table id="datatables" class="table">
 		        <thead>
 		            <tr>
@@ -47,108 +42,23 @@
 		    </table>
 		</div> 
 	</div>
-	<div class="col-12 col-lg-3 border">
+	<div class="col-12 col-xl-3 border order-lg-2 order-xl-3">
+
+		<div class="mt-5 text-center" id="leftToBudget">
+			<h4>
+				<span class="text-success">$2,736.00</span><span>&nbsp;left to budget</span>
+			</h4>
+		</div>		    
+		<div class="position-relative mb-5" id="budgetedChart"></div>
 
 
-		<div>
-			<ul class="nav nav-tabs">
-				<li class="nav-item">
-					<a class="nav-link active" href="#budgetPlanned" data-toggle="tab">Planned</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="#budgetSpent" data-toggle="tab">Spent</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="#budgetRemaining" data-toggle="tab">Remaining</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="#tabTransactions" data-toggle="tab">Transactions</a>
-				</li>
-			</ul>
+		<div class="d-flex justify-content-center">
+			<h1>ARTICLES</h1>
 		</div>
-		<div class="tab-content overflow-auto" style="height: calc(100% - 105px)">
-			<div class="tab-pane fade" id="tabTransactions">
-				<div class="">
-					<h3 class="p-1" data-bind="text: activeAccount().name()"></h3>
-					<button id="btnAddTrans" class="btn btn-secondary btn-sm m-2">Add Transaction</button>
-					<p data-bind="visible: activeAccount().entries().length == 0" class="text-italics m-2">No transactions found</p>
-					
-					<table class="table table-hover">
-						<tbody data-bind="foreach: activeAccount().entries()">
-							<tr>
-								<td data-bind="text: dateFormatted()"></td>
-								<td data-bind="text: amount().currency()" class="text-right"></td>
-								<td data-bind="text: note()"></td>
-								<td data-bind="click: $root.activeAccount().deleteJournalEntry.bind($data, $root)"><span class="oi oi-circle-x cursor-pointer text-danger"></span></td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-			</div>
-			<div class="tab-pane fade show active" id="budgetPlanned">
-				<div class="w-75 position-relative" id="budgetedChart">
-				<!-- 
-					<canvas id="budgetedChart"></canvas>
-					<div class="position-absolute text-center" style="top:50%;left:50%;transform:translate(-50%,-50%);">
-						<span>INCOME</span>
-						<p id="totalIncome"></p>
-					</div>
-				 -->
-				</div>			
-				<table class="table">
-					<thead>
-						<tr>
-							<th>Account</th>
-							<th class="text-right">Budgeted</th>
-							<th class="text-right">Percent of Income</th>
-						</tr>
-					</thead>
-					<tbody data-bind="foreach: filteredCategoriesNoIncome()">
-						<tr>
-							<td data-bind="text: name()"></td>
-							<td data-bind="text: budgetPlanned().currency()" class="text-right"></td>
-							<td data-bind="text: budgetPercent().percent(), css: {'text-danger': budgetPercent() > 1 }" class="text-right"></td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-			<div class="tab-pane fade" id="budgetSpent">
-				<div class="w-75 position-relative">
-					<canvas data-bind="chart: filteredCategoriesNoIncome, type: 'doughnut', label: 'name', value:'budgetSpent', subscribe: [totalPlanned, totalIncome, totalSpent] "></canvas>
-					<div class="position-absolute text-center" style="top:50%;left:50%;transform:translate(-50%,-50%);">
-						<span>SPENT</span>
-						<p data-bind="text: totalIncome().currency()"></p>
-					</div>
-				</div>
-				<table class="table">
-					<tbody data-bind="foreach: filteredCategoriesNoIncome()">
-						<tr>
-							<td data-bind="text: name()"></td>
-							<td data-bind="text: budgetSpent().currency()" class="text-right"></td>
-						</tr>
-					</tbody>
-				</table>
-
-			</div>
-			<div class="tab-pane fade" id="budgetRemaining">
-				<div class="w-75 position-relative">
-					<canvas data-bind="chart: filteredCategoriesNoIncome, type: 'doughnut', label: 'name', value:'budgetSpent', subscribe: [totalPlanned, totalIncome, totalSpent] "></canvas>
-					<div class="position-absolute text-center" style="top:50%;left:50%;transform:translate(-50%,-50%);">
-						<span>REMAINING</span>
-						<p data-bind="text: totalRemaining().currency()"></p>
-					</div>
-				</div>
-				<table class="table">
-					<tbody data-bind="foreach: filteredCategoriesNoIncome()">
-						<tr>
-							<td data-bind="text: name()"></td>
-							<td data-bind="text: budgetRemaining().currency()" class="text-right"></td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
+		<div class="d-flex justify-content-center">
+			<h1>MORE AD SPACE</h1>
 		</div>
-	
+
 	
 	</div>
 	
@@ -164,6 +74,3 @@ $(document).ready(function() {
     new MoneyStorage({});
 });
 </script>
-
-</body>
-</html>

@@ -33,7 +33,7 @@ function MoneyManager(config) {
 		var next = $('<div/>').addClass('input-group-text oi oi-chevron-right pt-2 ').css('top', '0').css('cursor','pointer');
 		var prependGroup = $('<div/>').addClass('input-group-prepend').append(prev);
 		var appendGroup = $('<div/>').addClass('input-group-append').append(next);
-		var inputGroup = $('<div/>').addClass('input-group col-12 col-lg-6').append(prependGroup).append(select).append(appendGroup);
+		var inputGroup = $('<div/>').addClass('input-group col-12').append(prependGroup).append(select).append(appendGroup);
 				
 		$(self.element.bindTo).append(inputGroup);
 		
@@ -59,7 +59,9 @@ function MoneyManager(config) {
 		$(document).on('change','#'+self.constants.ELEMENT_DATE_SELECT, function() {
 			self.config.currentDate = $(this).val();
 			$.cookie(self.constants.COOKIE_DATE, self.config.currentDate);
-			$(document).trigger(MoneyConstants.EVENT_DATE_CHANGED, [self.config.currentDate]);
+			//$(document).trigger(MoneyConstants.EVENT_DATE_CHANGED, [self.config.currentDate]);
+			window.location = window.location;
+
 		});
 
 		// Set up event handler for budget changes

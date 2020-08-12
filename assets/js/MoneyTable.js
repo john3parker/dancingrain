@@ -33,10 +33,21 @@ function MoneyTable(config) {
 			{ data: "id", visible:true}
 		];
 		self.config.order = [[self.constants.COL_CATEGORY_NAME, 'asc']];
-		self.config.orderFixed = [self.constants.COL_ACCOUNT_TYPE, 'desc'];
+		self.config.orderFixed = [[self.constants.COL_ACCOUNT_TYPE, 'desc'],[self.constants.COL_CATEGORY_NAME, 'asc']];
 		self.config.rowGroup = {
 			startRender: function(rows,group) {
-				return $('<div/>').text(group).append($('<span/>').addClass('oi oi-plus ml-2').css('font-size', '.8rem').css('cursor','pointer').attr('title','Add new account'));
+
+				var budgeted = rows.data().pluck('budgeted').reduce(function(a,b) {
+					return (+a + +b);
+				}, 0);
+
+				var actual = rows.data().pluck('actual').reduce(function(a,b) {
+					return (+a + +b);
+				}, 0);
+
+				//return $('<div/>').text(group).append($('<span/>').addClass('oi oi-plus ml-2').css('font-size', '.8rem').css('cursor','pointer').attr('title','Add new account'));
+				return $('<tr/>').append('<td colspan="2">' + group + '</td>').append('<td>' + budgeted.currency() + '</td><td>' + actual.currency() + '</td><td></td>').append($('<td colspan="2"></td>').append($('<span/>').addClass('text-success oi oi-plus').css('font-size', '.8rem').css('cursor','pointer').attr('title','Add account')));
+					//.append$($('<td/>').append($('<div/>').text(group).append($('<span/>').addClass('oi oi-plus ml-2').css('font-size', '.8rem').css('cursor','pointer').attr('title','Add new account'))));
 			},
 			dataSrc: 'categoryName'
 			};
@@ -128,7 +139,7 @@ function MoneyTable(config) {
 	}
 		
 	self.actionButtons = function() {
-		var div = $('<div/>').append($('<a/>').attr('href','#').append($('<span/>').addClass('oi oi-trash')));
+		var div = $('<div/>').append($('<a/>').attr('href','#').append($('<span/>').addClass('oi oi-trash').attr('title','Remove account')));
 		return $(div).html();
 	}
 	

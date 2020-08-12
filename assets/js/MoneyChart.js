@@ -13,7 +13,7 @@ function MoneyChart(elementToBind) {
 		self.config.valueField = 'budgeted';
 		self.config.type = 'doughnut';
 		self.config.data = {};
-		self.config.data.label = ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'];
+		self.config.data.labels = ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'];
 		self.config.data.datasets = [];
 		self.config.options = {legend:{display:false}, cutoutPercentage:75};
 		
@@ -23,6 +23,7 @@ function MoneyChart(elementToBind) {
 		self.dataset.backgroundColor = self.colors(14);
 		self.dataset.borderColor = self.colors(14);
 		self.dataset.borderWidth = "1";
+
 	}
 	
 	self.createChart = function() {
@@ -35,6 +36,7 @@ function MoneyChart(elementToBind) {
 		$(self.elements.elementToBind).append(self.elements.topDiv);
 
 		self.config.data.datasets.push(self.dataset);
+
 		self.chart = new Chart($(self.elements.canvas), self.config);
 		
 		$(document).on(MoneyConstants.EVENT_BUDGET_UPDATE, function(event, accounts) {
@@ -67,12 +69,11 @@ function MoneyChart(elementToBind) {
 			}
 					
 		});
-		//.log(config.data.label);
-		//console.log(dataset.data);
-		
+		//console.log(dataset.data);		
 		//console.log('updating chart');
 		self.chart.data.datasets[0].data = self.dataset.data;
 		self.chart.data.labels = self.config.data.label;
+
 		self.chart.update();
 	}
 	
