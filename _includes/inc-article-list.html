@@ -1,0 +1,38 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-10 ml-auto mr-auto">
+			<h2 class="title">{{page.category}}</h2>
+			<div class="row">
+				{% assign pageList = site[{page.folder}]| where: "categories", page.category%}
+				{% for p in pageList %}
+				<div class="col-md-4">
+					<div class="card card-blog">
+						<div class="card-image">
+							<a href="{{p.url}}">
+								<img class="img rounded" src="{{p.image}}">
+							</a>
+						</div>
+
+						<div class="card-body">
+							<h6 class="category text-primary">{{page.category}}</h6>
+
+							<h5 class="card-title">{{p.title}}</h5>
+							<p class="card-description">{{p.description}}</p>
+							<div class="card-footer">
+								<div class="author">
+									<img src="{{p.authorImage}}" alt="..." class="avatar img-raised">
+									<span>{{p.author}}</span>
+								</div>
+								<div class="stats stats-right">
+									<i class="now-ui-icons tech_watch-time"></i>
+									{{p.stats}}
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+</div>

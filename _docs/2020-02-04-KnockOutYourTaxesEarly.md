@@ -1,8 +1,13 @@
 ---
 title: Knock Out Your Taxes Early
 layout: post
-image: "/images/2020/woman-1839798_640.jpg"
+description: Knocking your taxes out now means you can avoid the crunch time of actual tax season.
+image: "/assets/images/2020/apple-1851464_640.jpg"
 categories: ["Money", "Budgeting"]
+stats: 5 min read
+author: James Smith
+authorImage: "/assets/images/authors/james-smith.jpg"
+
 ---
 ![Woman on couch holding book](/images/2020/woman-1839798_640.jpg "Knock Out Your Taxes Early"){: .img-fluid .img-thumbnail}
 

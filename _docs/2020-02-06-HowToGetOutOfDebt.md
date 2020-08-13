@@ -1,8 +1,12 @@
 ---
 title: How to Get Out of Debt
 layout: post
-image: "/images/2020/japan-2014616_640.jpg"
-categories: ["Debt"]
+description: Making the decision to step up and deal with the debt you owe once and for all is a big move in the right direction.
+image: "/assets/images/2020/japan-2014616_640.jpg"
+categories: ["Debt", "Budgeting"]
+stats: 5 min read
+author: Mark Murlock
+authorImage: "/assets/images/authors/mark-murlock.jpg"
 ---
 ![Downtown scene](/images/2020/japan-2014616_640.jpg "Get Out Of Debt"){: .img-fluid .img-thumbnail}
 
