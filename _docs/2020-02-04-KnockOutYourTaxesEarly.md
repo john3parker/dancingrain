@@ -9,7 +9,6 @@ author: James Smith
 authorImage: "/assets/images/authors/james-smith.jpg"
 
 ---
-![Woman on couch holding book](/images/2020/woman-1839798_640.jpg "Knock Out Your Taxes Early"){: .img-fluid .img-thumbnail}
 
 What’s that you’ve got there? A mailbox full of W-2s, W-10s, 1099s and more? What if you went ahead and filed those taxes this month?
 
@@ -38,6 +37,9 @@ If you have not filed your taxes in the past, then you should reach out to a pro
 
 ### Times You May Not Need an Accountant
 If your tax situation has not changed over the last year or you are single and rent, you may not save any money by using an accountant. If you do not have children or anything that may complicate your taxes, you may not need an accountant. However, if you have any questions, it never hurts to reach out to a professional accountant or CPA about your taxes. Someone who deals with this professionally may be able to help you determine the best course of action. The software programs have been developed to handle the most straightforward situations. 
+
+![Woman on couch holding book](/assets/images/2020/woman-1839798_640.jpg "Knock Out Your Taxes Early"){: .img-fluid .img-thumbnail}
+
 
 ### Alternatives to Using an Accountant
 An accountant can be expensive, which is the main disadvantage of using one. If your situation is fairly simple, you should be able to use one of these alternatives to help you save money on your taxes. Be sure that you have received your W-2 and all of your 1099 forms before you file so that you do not have to make any corrections after you have already submitted your taxes. Allow around an hour to complete your taxes, unless you have a complicated situation. You can also use state software to complete your taxes, which will save you time. Filing electronically will speed up the refund process.

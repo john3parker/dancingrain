@@ -78,3 +78,105 @@ nav.navbar {
     max-width: 100%;
     border-radius: 1px;
 }
+
+.page-header.page-header-small {
+    min-height: 60vh;
+    max-height: 440px;
+}
+.page-header.page-header-small {
+    min-height: 60vh;
+    max-height: 440px;
+}
+.page-header {
+    min-height: 100vh;
+    max-height: 999px;
+    padding: 0;
+    color: #FFFFFF;
+    position: relative;
+    overflow: hidden;
+}
+.page-header:before {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+.page-header:after, .page-header:before {
+    position: absolute;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    left: 0;
+    top: 0;
+    content: "";
+}
+.page-header .page-header-image {
+    position: absolute;
+    background-size: cover;
+    background-position: center center;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+.page-header .content-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 2;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #FFFFFF;
+    padding: 0 15px;
+    width: 100%;
+    max-width: 880px;
+}
+.page-header .title {
+    color: #FFFFFF;
+}
+.title {
+    font-weight: 700;
+    padding-top: 30px;
+}
+.section {
+    padding: 70px 0;
+    position: relative;
+    background: #FFFFFF;
+}
+.profile-page .button-container, .blog-post .button-container {
+    text-align: center;
+    margin-top: -95px;
+}
+.btn-lg {
+    font-size: 1em;
+    border-radius: 0.25rem;
+    padding: 15px 48px;
+}
+.btn-round {
+    border-width: 1px;
+    border-radius: 30px !important;
+    padding: 11px 23px;
+}
+.btn.btn-icon.btn-lg, .navbar .navbar-nav > a.btn.btn-icon.btn-lg {
+    height: 3.6rem;
+    min-width: 3.6rem;
+    width: 3.6rem;
+}
+.btn.btn-twitter:focus, .btn.btn-twitter:active, .btn.btn-twitter:hover, .navbar .navbar-nav > a.btn.btn-twitter:focus, .navbar .navbar-nav > a.btn.btn-twitter:active, .navbar .navbar-nav > a.btn.btn-twitter:hover {
+    background-color: #71baf1;
+    color: #fff;
+}
+.btn.btn-twitter, .navbar .navbar-nav > a.btn.btn-twitter {
+    background-color: #55acee;
+    color: #fff;
+}
+.btn.btn-facebook, .navbar .navbar-nav > a.btn.btn-facebook {
+    background-color: #3b5998;
+    color: #fff;
+}
+.btn.btn-google, .navbar .navbar-nav > a.btn.btn-google {
+    background-color: #dd4b39;
+    color: #fff;
+}
+.button-container i.fab {
+    -webkit-transform: translate(-9px, 2px);
+    font-size:30px;
+}
