@@ -5,7 +5,7 @@
 			<div class="row">
 				{% assign pageList = site[{page.folder}]| where: "categories", page.category%}
 				{% for p in pageList %}
-				<div class="col-md-4">
+				<div class="col-md-4 mb-5">
 					<div class="card card-blog">
 						<div class="card-image">
 							<a href="{{p.url}}">
