@@ -70,11 +70,18 @@ function MoneyManager(config) {
 		});
 	
 		// trigger the first date change so it loads the current budget
-		
-		setTimeout(function(){
+		setTimeout(self.triggerDateChange, 10);
+	}
+
+	self.triggerDateChange = function() {
+
 			// Give everything time to load before triggering
-			$(document).trigger(MoneyConstants.EVENT_DATE_CHANGED, [self.config.currentDate]);
-		},300);
+			if (typeof MoneyStorage === 'function') {
+				$(document).trigger(MoneyConstants.EVENT_DATE_CHANGED, [self.config.currentDate]);
+			}
+			else {
+				setTimeout(self.triggerDateChange, 100);
+			}
 
 	}
 	

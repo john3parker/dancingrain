@@ -103,7 +103,7 @@ function MoneyChart(elementToBind) {
 		var totals = [];
 		var totalIncome = {budgeted:0, actual:0};
 		var totalBudget = {budgeted:0, actual:0};
-		
+
 		for(var x=0;x < accounts.length; x++) {
 			
 			var categoryTotal = map.get(accounts[x].categoryName);
@@ -119,9 +119,9 @@ function MoneyChart(elementToBind) {
 			
 			categoryTotal.budgeted += +accounts[x].budgeted;
 			categoryTotal.actual += +accounts[x].actual;
-					
-			if (categoryTotal.accountType.id == '1') { // income
-				totalIncome = categoryTotal;
+			
+			if (accounts[x].accountType.id == MoneyConstants.ACCOUNT_TYPE_INCOME) { // income
+				totalIncome.budgeted += +accounts[x].budgeted;
 			} else {
 				totalBudget.budgeted += +accounts[x].budgeted;
 			}
@@ -130,7 +130,7 @@ function MoneyChart(elementToBind) {
 		}
 		
 		for (var [key, category] of map) {
-			if (category.accountType.id != 1) {
+			if (category.accountType.id != MoneyConstants.ACCOUNT_TYPE_INCOME) {
 				totals.push(category);
 			}
 		}

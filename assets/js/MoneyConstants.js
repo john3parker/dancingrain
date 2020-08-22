@@ -10,6 +10,12 @@ class MoneyConstants {
 
 	static EVENT_READY = 'bm:ready';
 
+    static ACCOUNT_TYPE_INCOME = 1;
+    static ACCOUNT_TYPE_EXPENSE = 2;
+    static ACCOUNT_TYPE_FUND = 3;
+
+    static accountTypes = [{id:1, name:'income'}, {id:2, name:'expense'}, {id:3, name:'fund'}];
+
     static baseAccounts = [
         { "id":"1", "categoryName": "Income", "accountName": "Paycheck1", "budgeted": 1500, "actual": 0, "accountType": { name: "income", id: 1 }},
         { "id":"2", "categoryName": "Income", "accountName": "Paycheck2", "budgeted": 0, "actual": 0, "accountType": { name: "income", id: 1 }},

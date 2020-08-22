@@ -56,7 +56,7 @@ function MoneyTable(config) {
 			self.leftToBudget();
 		});
 
-		self.accountTypes = [{id:1, name:'income'}, {id:2, name:'expense'}, {id:3, name:'fund'}];
+		self.accountTypes = MoneyConstants.accountTypes;
 	}
 	
 	self.initEditor = function() {
@@ -317,7 +317,7 @@ function MoneyTable(config) {
 			
 			var account = self.config.data[x];
 	
-			if (account.accountType.id == '1') { // income
+			if (account.accountType.id == MoneyConstants.ACCOUNT_TYPE_INCOME) { // income
 				totalIncome += +account.budgeted;
 			} else {
 				totalBudget += +account.budgeted;
