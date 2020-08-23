@@ -178,7 +178,7 @@ function MoneyTable(config) {
 			    
 			    if (self.dataTable.settings().init().columns[cellIndex].type == 'accountType') {
 			    	div.addClass(self.constants.SELECT_INDICATOR);
-			    	input = $('<select/>').addClass('form-control form-control-sm').val(currentValue).bind('blur', self.handleKeypress).data('src', self.dataTable.settings().init().columns[cellIndex].data); 
+			    	input = $('<select/>').addClass('form-control form-control-sm').val(currentValue).bind('blur', self.handleKeypress).bind('change', self.handleKeypress).data('src', self.dataTable.settings().init().columns[cellIndex].data); 
 			    	$(self.accountTypes).each(function() {
 			    		var selected = 'none';
 			    		if (this.id == data.accountType.id) {
@@ -275,7 +275,7 @@ function MoneyTable(config) {
 			self.addEdit(newFocus);
 		}
 		else {
-			if (event.type == 'blur') {
+			if (event.type == 'blur' || event.type == 'change') {
 				
 				setTimeout(function(){
 					// Give the click event time to fire
